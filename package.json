@@ -1,5 +1,5 @@
 {
-  "name": "react-avancado-boilerplate",
+  "name": "my-trips",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -10,9 +10,6 @@
     "test": "jest --maxWorkers=50%",
     "test:watch": "jest --watch --maxWorkers=25%",
     "test:ci": "jest --runInBand",
-    "generate": "yarn plop --plopfile generators/plopfile.js",
-    "storybook": "start-storybook -s ./public -p 6006",
-    "build-storybook": "build-storybook -s ./public",
     "postinstall": "husky install",
     "prepare": "husky install"
   },
@@ -32,8 +29,6 @@
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-typescript": "^7.14.5",
-    "@storybook/addon-essentials": "6.3.4",
-    "@storybook/react": "6.3.4",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@types/jest": "^26.0.24",
@@ -54,9 +49,7 @@
     "jest": "^27.0.6",
     "jest-styled-components": "^7.0.5",
     "lint-staged": "^11.0.1",
-    "plop": "^2.7.4",
     "prettier": "^2.3.2",
-    "storybook-addon-next-router": "^3.0.5",
     "typescript": "^4.3.5"
   }
 }
