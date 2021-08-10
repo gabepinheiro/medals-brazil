@@ -33,31 +33,35 @@ const CustomTileLayer = () => {
   )
 }
 
+import * as S from './styles'
+
 const Map = ({ places }: MapProps) => {
   const router = useRouter()
 
   return (
-    <MapContainer
-      center={[-14.235, -51.9253]}
-      zoom={4}
-      style={{ width: '100%', height: '100%' }}
-    >
-      <CustomTileLayer />
+    <S.MapWrapper>
+      <MapContainer
+        center={[-14.235, -51.9253]}
+        zoom={4}
+        style={{ width: '100%', height: '100%' }}
+      >
+        <CustomTileLayer />
 
-      {places?.map(({ id, name, location, slug }) => {
-        const { latitude, longitude } = location
-        return (
-          <Marker
-            key={`place-${id}`}
-            position={[latitude, longitude]}
-            title={name}
-            eventHandlers={{
-              click: () => router.push(`place/${slug}`)
-            }}
-          />
-        )
-      })}
-    </MapContainer>
+        {places?.map(({ id, name, location, slug }) => {
+          const { latitude, longitude } = location
+          return (
+            <Marker
+              key={`place-${id}`}
+              position={[latitude, longitude]}
+              title={name}
+              eventHandlers={{
+                click: () => router.push(`place/${slug}`)
+              }}
+            />
+          )
+        })}
+      </MapContainer>
+    </S.MapWrapper>
   )
 }
 
