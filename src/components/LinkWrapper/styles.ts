@@ -6,11 +6,10 @@ export const Wrapper = styled.div`
   top: var(--medium);
   right: var(--medium);
 
-  color: var(--white);
-
   cursor: pointer;
 
   svg {
+    color: inherit;
     transition: color 0.3 ease-in-out;
   }
 
