@@ -2892,7 +2892,16 @@ export type GetPageBySlugQueryVariables = Exact<{
 
 export type GetPageBySlugQuery = { __typename?: 'Query', page?: Maybe<{ __typename?: 'Page', id: string, heading: string, slug: string, body: { __typename?: 'RichText', html: string } }> };
 
-export type GetPlacesQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetPlacesQueryVariables = Exact<{
+  first?: Maybe<Scalars['Int']>;
+}>;
 
 
 export type GetPlacesQuery = { __typename?: 'Query', places: Array<{ __typename?: 'Place', id: string, name: string, slug: string, location: { __typename?: 'Location', latitude: number, longitude: number }, description?: Maybe<{ __typename?: 'RichText', html: string }>, gallery: Array<{ __typename?: 'Asset', url: string, width?: Maybe<number>, height?: Maybe<number> }> }> };
+
+export type GetPlaceBySlugQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type GetPlaceBySlugQuery = { __typename?: 'Query', place?: Maybe<{ __typename?: 'Place', id: string, name: string, slug: string, description?: Maybe<{ __typename?: 'RichText', html: string }>, location: { __typename?: 'Location', latitude: number, longitude: number }, gallery: Array<{ __typename?: 'Asset', url: string, width?: Maybe<number>, height?: Maybe<number> }> }> };
