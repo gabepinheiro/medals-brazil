@@ -13,18 +13,32 @@ export const Heading = styled.h1`
   font-size: var(--large);
   margin-bottom: var(--medium);
 `
-export const Body = styled.div`
-  margin-bottom: var(--large);
 
-  p {
+export const SectionAbout = styled.section`
+  margin-bottom: var(--medium);
+  h2 {
+    font-size: var(--large);
     margin-bottom: var(--medium);
   }
+`
+export const SectionModality = styled(SectionAbout)``
+export const SectionMedal = styled(SectionAbout)``
+
+export const Body = styled.div`
+  background: var(--white);
+  margin-bottom: var(--large);
+  color: var(--background);
+  padding: 1.6rem;
 `
 export const Gallery = styled.div`
   display: grid;
   grid-gap: var(--medium);
+  margin-bottom: var(--medium);
 
   img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
     background: #f6f7f8;
     background-image: linear-gradient(
       to right,

@@ -19,4 +19,6 @@ export const Heading = styled.h1`
 export const Body = styled.div`
   // server para estilos do body
   // p, a, ul, li, blockquote...
+  font-size: var(--medium);
+  text-align: center;
 `

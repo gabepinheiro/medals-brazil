@@ -3,12 +3,16 @@ import { MapContainer, TileLayer, Marker, MapConsumer } from 'react-leaflet'
 
 type Place = {
   id: string
-  name: string
-  slug: string
   location: {
     latitude: number
     longitude: number
   }
+  athtele: {
+    name: string
+    city: string
+    medal: string
+  }
+  slug: string
 }
 
 export type MapProps = {
@@ -66,15 +70,17 @@ const Map = ({ places }: MapProps) => {
         </MapConsumer>
         <CustomTileLayer />
 
-        {places?.map(({ id, name, location, slug }) => {
+        {places?.map(({ id, location, athtele, slug }) => {
           const { latitude, longitude } = location
+          const { name, city } = athtele
+
           return (
             <Marker
               key={`place-${id}`}
               position={[latitude, longitude]}
-              title={name}
+              title={`${city}, ${name}`}
               eventHandlers={{
-                click: () => router.push(`place/${slug}`)
+                click: () => router.push(`athlete/${slug}`)
               }}
             />
           )
