@@ -15,13 +15,9 @@ Demo: https://medals-brazil.vercel.app/
 Curso [Aprenda NextJS, GraphQL e Leaflet na prática](https://www.udemy.com/course/aprenda-nextjs-na-pratica), feito por [Willian Justen Cursos](https://willianjusten.com.br/cursos)
 
 <br>
-<br>
 
 ## 🚀 Como executar o projeto
 
----
-
-<br>
 
 ### Pré-requisitos
 
@@ -29,10 +25,9 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/). Após ter instalado as ferramentas básicas, você vai precisar criar e configurar algumas coisas a seguir:
 
-<br>
+
 
 ### GraphCMS
----
 
 Este projeto usa [GraphCMS](https://graphcms.com/), então você precisa primeiro criar uma conta lá.
 
@@ -70,15 +65,12 @@ Depois disso, preencha alguns valores e não esqueça de `publicar`!
 
 ### Authentication
 
-<br>
 
 Para criar um acesso de token, vá para `Settings > API Access`, dentro desta página, encontre `Permanent Auth Tokens`, crie um nome de token e marque todas as consultas possíveis. Salve e obtenha o token.
 
-<br>
 
 ### NextJS
 
-<br>
 
 Depois de criar sua conta em [GraphCMS](https://graphcms.com/) e seguindo as etapas acima, você só precisa renomear
 o `.env.example` para `.env.local` (se você planeja executar localmente) e edite as chaves lá.
