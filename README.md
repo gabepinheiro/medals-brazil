@@ -1,25 +1,89 @@
+# Medals Brazil - Olympic Games in Tokyo 2020
 
-![React Avançado](https://raw.githubusercontent.com/React-Avancado/boilerplate/master/public/img/logo-gh.svg)
+<br>
 
-This is a [Next.js](https://nextjs.org/) boilerplate to be used in a course called [React Avançado](https://reactavancado.com.br/).
-![ci](https://github.com/React-Avancado/boilerplate/workflows/ci/badge.svg)
-## What is inside?
+## 💻 Sobre o projeto
 
-This project uses lot of stuff as:
+<br>
 
-- [TypeScript](https://www.typescriptlang.org/)
-- [NextJS](https://nextjs.org/)
-- [Styled Components](https://styled-components.com/)
-- [Jest](https://jestjs.io/)
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
-- [Storybook](https://storybook.js.org/)
-- [Eslint](https://eslint.org/)
-- [Prettier](https://prettier.io/)
-- [Husky](https://github.com/typicode/husky)
+É um projeto de final de curso com o tema dos Jogos Olimpicos para a elaboração de um mapa interativo que marca os estados e cidades brasileiras representados pelos atletas do Brasil que conquistaram medalhas nos Jogos Olímpicos de Tóquio 2020.
 
-## Getting Started
+Demo: https://medals-brazil.vercel.app/
 
-First, run the development server:
+<br>
+
+Curso [Aprenda NextJS, GraphQL e Leaflet na prática](https://www.udemy.com/course/aprenda-nextjs-na-pratica), feito por [Willian Justen Cursos](https://willianjusten.com.br/cursos)
+
+<br>
+<br>
+
+## 🚀 Como executar o projeto
+
+---
+
+<br>
+
+### Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/). Após ter instalado as ferramentas básicas, você vai precisar criar e configurar algumas coisas a seguir:
+
+<br>
+
+### GraphCMS
+---
+
+Este projeto usa [GraphCMS](https://graphcms.com/), então você precisa primeiro criar uma conta lá.
+
+Depois de criar o Schema, basta seguir as etapas:
+
+- Schema > Add New Model with `Athlete` name
+- And add the following fields:
+  - `Single Line Text` as `name`
+  - `Single Line Text` as `city`
+  - `Single Line Text` as `modality`
+  - `Dropdown - Enumeration` as `medal`
+  - `Rich Text` as `about`
+  - `Asset Picker` as `image`
+  - `Slug` as `slug`
+
+  <br>
+
+- Schema > Add New Model with `Place` name
+- And add the following fields:
+  - `Map` as `location`
+  - `Athlete` as `athlete`
+  - `Slug` as `slug`
+
+<br>
+
+- Schema > Add New Model with `Page` name
+- And add the following fields:
+  - `Single Line Text` as `heading`
+  - `Slug` as `slug`
+  - `Rich Text` as `body`
+
+Depois disso, preencha alguns valores e não esqueça de `publicar`!
+
+<br>
+
+### Authentication
+
+<br>
+
+Para criar um acesso de token, vá para `Settings > API Access`, dentro desta página, encontre `Permanent Auth Tokens`, crie um nome de token e marque todas as consultas possíveis. Salve e obtenha o token.
+
+<br>
+
+### NextJS
+
+<br>
+
+Depois de criar sua conta em [GraphCMS](https://graphcms.com/) e seguindo as etapas acima, você só precisa renomear
+o `.env.example` para `.env.local` (se você planeja executar localmente) e edite as chaves lá.
+
+Com tudo pronto, você pode iniciar o aplicativo com:
 
 ```bash
 npm run dev
@@ -27,9 +91,11 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir [http://localhost:3000](http://localhost:3000) com seu navegador para ver o resultado.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Você pode começar a editar a página modificando `pages/index.js`. A página é atualizada automaticamente conforme você edita o arquivo.
+
+<br>
 
 ## Commands
 
@@ -41,18 +107,3 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 - `test:watch`: runs jest in watch mode
 - `storybook`: runs storybook on `localhost:6006`
 - `build-storybook`: create the build version of storybook
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
