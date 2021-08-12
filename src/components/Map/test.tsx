@@ -15,8 +15,10 @@ describe('<Map />', () => {
   it('should render with the o marker in correct place', () => {
     const place = {
       id: '1',
-      name: 'Petrópolis',
-      slug: 'petropolis',
+      athtele: {
+        name: 'Petrópolis',
+        city: 'petropolis'
+      },
       location: {
         latitude: 0,
         longitude: 0
@@ -25,8 +27,10 @@ describe('<Map />', () => {
 
     const placeTwo = {
       id: '2',
-      name: 'Reykjavik',
-      slug: 'reykjavik',
+      athtele: {
+        name: 'Reykjavik',
+        city: 'reykjavik'
+      },
       location: {
         latitude: 129,
         longitude: -50

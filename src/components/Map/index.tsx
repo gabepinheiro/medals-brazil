@@ -10,9 +10,9 @@ type Place = {
   athtele: {
     name: string
     city: string
-    medal: string
+    medal?: string
   }
-  slug: string
+  slug?: string
 }
 
 export type MapProps = {
@@ -38,6 +38,8 @@ const CustomTileLayer = () => {
 }
 
 import * as S from './styles'
+
+import L from 'leaflet'
 
 const Map = ({ places }: MapProps) => {
   const router = useRouter()
@@ -72,13 +74,21 @@ const Map = ({ places }: MapProps) => {
 
         {places?.map(({ id, location, athtele, slug }) => {
           const { latitude, longitude } = location
-          const { name, city } = athtele
+          const { name, city, medal } = athtele
+
+          const markerIcon = new L.Icon({
+            iconUrl: `img/${medal}.png`,
+            iconSize: [40, 40],
+            iconAnchor: [20, 40],
+            popupAnchor: [0, -10]
+          })
 
           return (
             <Marker
               key={`place-${id}`}
               position={[latitude, longitude]}
               title={`${city}, ${name}`}
+              icon={markerIcon}
               eventHandlers={{
                 click: () => router.push(`athlete/${slug}`)
               }}
