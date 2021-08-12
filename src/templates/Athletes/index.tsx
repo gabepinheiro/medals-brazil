@@ -42,9 +42,9 @@ export default function AthletesTemplate({ athtele }: AthletesTemplateProps) {
           title: `${athtele.name} - Medals Brazil`,
           images: [
             {
-              url: athtele.url,
-              width: athtele.width,
-              height: athtele.height,
+              url: athtele.image.url,
+              width: athtele.image.width,
+              height: athtele.image.height,
               alt: `${athtele.name}`
             }
           ]
