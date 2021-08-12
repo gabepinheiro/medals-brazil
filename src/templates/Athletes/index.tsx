@@ -5,6 +5,7 @@ import LinkWrapper from 'components/LinkWrapper'
 
 import * as S from './styles'
 import { useRouter } from 'next/dist/client/router'
+import { NextSeo } from 'next-seo'
 
 type ImageProps = {
   url: string
@@ -33,6 +34,22 @@ export default function AthletesTemplate({ athtele }: AthletesTemplateProps) {
 
   return (
     <>
+      <NextSeo
+        title={`${athtele.name} - Medals Brazil`}
+        canonical="https://medals-brazil.vercel.app"
+        openGraph={{
+          url: 'https://medals-brazil.vercel.app',
+          title: `${athtele.name} - Medals Brazil`,
+          images: [
+            {
+              url: athtele.url,
+              width: athtele.width,
+              height: athtele.height,
+              alt: `${athtele.name}`
+            }
+          ]
+        }}
+      />
       <LinkWrapper href="/">
         <CloseOutline size={32} aria-label="Go back to Map" />
       </LinkWrapper>
