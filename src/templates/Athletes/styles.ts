@@ -21,8 +21,6 @@ export const SectionAbout = styled.section`
     margin-bottom: var(--medium);
   }
 `
-export const SectionModality = styled(SectionAbout)``
-export const SectionMedal = styled(SectionAbout)``
 
 export const Body = styled.div`
   background: var(--white);
@@ -30,6 +28,16 @@ export const Body = styled.div`
   color: var(--background);
   padding: 1.6rem;
 `
+
+export const SectionModality = styled(SectionAbout)``
+
+export const SectionMedal = styled(SectionAbout)`
+  ${Body} {
+    display: flex;
+    align-items: center;
+  }
+`
+
 export const Gallery = styled.div`
   display: grid;
   grid-gap: var(--medium);

@@ -72,9 +72,13 @@ export default function AthletesTemplate({ athtele }: AthletesTemplateProps) {
           <S.SectionMedal>
             <h2>Medal</h2>
             <S.Body>
-              <p>
-                <strong>{athtele.medal}</strong>
-              </p>
+              <Image
+                src={`/img/${athtele.medal}.png`}
+                alt={`${athtele.medal} medal`}
+                width={48}
+                height={48}
+                loading="lazy"
+              />
             </S.Body>
           </S.SectionMedal>
         </S.Container>
