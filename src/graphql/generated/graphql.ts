@@ -71,7 +71,7 @@ export type Asset = Node & {
   updatedBy?: Maybe<User>;
   /** User that last published this document */
   publishedBy?: Maybe<User>;
-  imageAthtele: Array<Athtele>;
+  imageAthlete: Array<Athlete>;
   /** List of Asset versions */
   history: Array<Version>;
   /** Get the url for the asset with provided transformations applied. */
@@ -131,9 +131,9 @@ export type AssetPublishedByArgs = {
 
 
 /** Asset system model */
-export type AssetImageAthteleArgs = {
-  where?: Maybe<AthteleWhereInput>;
-  orderBy?: Maybe<AthteleOrderByInput>;
+export type AssetImageAthleteArgs = {
+  where?: Maybe<AthleteWhereInput>;
+  orderBy?: Maybe<AthleteOrderByInput>;
   skip?: Maybe<Scalars['Int']>;
   after?: Maybe<Scalars['String']>;
   before?: Maybe<Scalars['String']>;
@@ -182,7 +182,7 @@ export type AssetCreateInput = {
   width?: Maybe<Scalars['Float']>;
   size?: Maybe<Scalars['Float']>;
   mimeType?: Maybe<Scalars['String']>;
-  imageAthtele?: Maybe<AthteleCreateManyInlineInput>;
+  imageAthlete?: Maybe<AthleteCreateManyInlineInput>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: Maybe<AssetCreateLocalizationsInput>;
 };
@@ -309,9 +309,9 @@ export type AssetManyWhereInput = {
   createdBy?: Maybe<UserWhereInput>;
   updatedBy?: Maybe<UserWhereInput>;
   publishedBy?: Maybe<UserWhereInput>;
-  imageAthtele_every?: Maybe<AthteleWhereInput>;
-  imageAthtele_some?: Maybe<AthteleWhereInput>;
-  imageAthtele_none?: Maybe<AthteleWhereInput>;
+  imageAthlete_every?: Maybe<AthleteWhereInput>;
+  imageAthlete_some?: Maybe<AthleteWhereInput>;
+  imageAthlete_none?: Maybe<AthleteWhereInput>;
 };
 
 export enum AssetOrderByInput {
@@ -352,7 +352,7 @@ export type AssetUpdateInput = {
   width?: Maybe<Scalars['Float']>;
   size?: Maybe<Scalars['Float']>;
   mimeType?: Maybe<Scalars['String']>;
-  imageAthtele?: Maybe<AthteleUpdateManyInlineInput>;
+  imageAthlete?: Maybe<AthleteUpdateManyInlineInput>;
   /** Manage document localizations */
   localizations?: Maybe<AssetUpdateLocalizationsInput>;
 };
@@ -654,9 +654,9 @@ export type AssetWhereInput = {
   createdBy?: Maybe<UserWhereInput>;
   updatedBy?: Maybe<UserWhereInput>;
   publishedBy?: Maybe<UserWhereInput>;
-  imageAthtele_every?: Maybe<AthteleWhereInput>;
-  imageAthtele_some?: Maybe<AthteleWhereInput>;
-  imageAthtele_none?: Maybe<AthteleWhereInput>;
+  imageAthlete_every?: Maybe<AthleteWhereInput>;
+  imageAthlete_some?: Maybe<AthleteWhereInput>;
+  imageAthlete_none?: Maybe<AthleteWhereInput>;
 };
 
 /** References Asset record uniquely */
@@ -664,12 +664,12 @@ export type AssetWhereUniqueInput = {
   id?: Maybe<Scalars['ID']>;
 };
 
-export type Athtele = Node & {
-  __typename?: 'Athtele';
+export type Athlete = Node & {
+  __typename?: 'Athlete';
   /** System stage field */
   stage: Stage;
   /** Get the document in other stages */
-  documentInStages: Array<Athtele>;
+  documentInStages: Array<Athlete>;
   /** The unique identifier */
   id: Scalars['ID'];
   /** The time the document was created */
@@ -691,62 +691,62 @@ export type Athtele = Node & {
   publishedBy?: Maybe<User>;
   image: Asset;
   medal: Medals;
-  /** List of Athtele versions */
+  /** List of Athlete versions */
   history: Array<Version>;
 };
 
 
-export type AthteleDocumentInStagesArgs = {
+export type AthleteDocumentInStagesArgs = {
   stages?: Array<Stage>;
   includeCurrent?: Scalars['Boolean'];
   inheritLocale?: Scalars['Boolean'];
 };
 
 
-export type AthteleCreatedByArgs = {
+export type AthleteCreatedByArgs = {
   locales?: Maybe<Array<Locale>>;
 };
 
 
-export type AthteleUpdatedByArgs = {
+export type AthleteUpdatedByArgs = {
   locales?: Maybe<Array<Locale>>;
 };
 
 
-export type AthtelePublishedByArgs = {
+export type AthletePublishedByArgs = {
   locales?: Maybe<Array<Locale>>;
 };
 
 
-export type AthteleImageArgs = {
+export type AthleteImageArgs = {
   locales?: Maybe<Array<Locale>>;
 };
 
 
-export type AthteleHistoryArgs = {
+export type AthleteHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
   stageOverride?: Maybe<Stage>;
 };
 
-export type AthteleConnectInput = {
+export type AthleteConnectInput = {
   /** Document to connect */
-  where: AthteleWhereUniqueInput;
+  where: AthleteWhereUniqueInput;
   /** Allow to specify document position in list of connected documents, will default to appending at end of list */
   position?: Maybe<ConnectPositionInput>;
 };
 
 /** A connection to a list of items. */
-export type AthteleConnection = {
-  __typename?: 'AthteleConnection';
+export type AthleteConnection = {
+  __typename?: 'AthleteConnection';
   /** Information to aid in pagination. */
   pageInfo: PageInfo;
   /** A list of edges. */
-  edges: Array<AthteleEdge>;
+  edges: Array<AthleteEdge>;
   aggregate: Aggregate;
 };
 
-export type AthteleCreateInput = {
+export type AthleteCreateInput = {
   createdAt?: Maybe<Scalars['DateTime']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   name: Scalars['String'];
@@ -759,39 +759,39 @@ export type AthteleCreateInput = {
   medal: Medals;
 };
 
-export type AthteleCreateManyInlineInput = {
-  /** Create and connect multiple existing Athtele documents */
-  create?: Maybe<Array<AthteleCreateInput>>;
-  /** Connect multiple existing Athtele documents */
-  connect?: Maybe<Array<AthteleWhereUniqueInput>>;
+export type AthleteCreateManyInlineInput = {
+  /** Create and connect multiple existing Athlete documents */
+  create?: Maybe<Array<AthleteCreateInput>>;
+  /** Connect multiple existing Athlete documents */
+  connect?: Maybe<Array<AthleteWhereUniqueInput>>;
 };
 
-export type AthteleCreateOneInlineInput = {
-  /** Create and connect one Athtele document */
-  create?: Maybe<AthteleCreateInput>;
-  /** Connect one existing Athtele document */
-  connect?: Maybe<AthteleWhereUniqueInput>;
+export type AthleteCreateOneInlineInput = {
+  /** Create and connect one Athlete document */
+  create?: Maybe<AthleteCreateInput>;
+  /** Connect one existing Athlete document */
+  connect?: Maybe<AthleteWhereUniqueInput>;
 };
 
 /** An edge in a connection. */
-export type AthteleEdge = {
-  __typename?: 'AthteleEdge';
+export type AthleteEdge = {
+  __typename?: 'AthleteEdge';
   /** The item at the end of the edge. */
-  node: Athtele;
+  node: Athlete;
   /** A cursor for use in pagination. */
   cursor: Scalars['String'];
 };
 
 /** Identifies documents */
-export type AthteleManyWhereInput = {
+export type AthleteManyWhereInput = {
   /** Contains search across all appropriate fields. */
   _search?: Maybe<Scalars['String']>;
   /** Logical AND on all given filters. */
-  AND?: Maybe<Array<AthteleWhereInput>>;
+  AND?: Maybe<Array<AthleteWhereInput>>;
   /** Logical OR on all given filters. */
-  OR?: Maybe<Array<AthteleWhereInput>>;
+  OR?: Maybe<Array<AthleteWhereInput>>;
   /** Logical NOT on all given filters combined by AND. */
-  NOT?: Maybe<Array<AthteleWhereInput>>;
+  NOT?: Maybe<Array<AthleteWhereInput>>;
   id?: Maybe<Scalars['ID']>;
   /** All values that are not equal to given value. */
   id_not?: Maybe<Scalars['ID']>;
@@ -945,7 +945,7 @@ export type AthteleManyWhereInput = {
   medal_not_in?: Maybe<Array<Medals>>;
 };
 
-export enum AthteleOrderByInput {
+export enum AthleteOrderByInput {
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
   CreatedAtAsc = 'createdAt_ASC',
@@ -966,7 +966,7 @@ export enum AthteleOrderByInput {
   MedalDesc = 'medal_DESC'
 }
 
-export type AthteleUpdateInput = {
+export type AthleteUpdateInput = {
   name?: Maybe<Scalars['String']>;
   city?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
@@ -977,24 +977,24 @@ export type AthteleUpdateInput = {
   medal?: Maybe<Medals>;
 };
 
-export type AthteleUpdateManyInlineInput = {
-  /** Create and connect multiple Athtele documents */
-  create?: Maybe<Array<AthteleCreateInput>>;
-  /** Connect multiple existing Athtele documents */
-  connect?: Maybe<Array<AthteleConnectInput>>;
-  /** Override currently-connected documents with multiple existing Athtele documents */
-  set?: Maybe<Array<AthteleWhereUniqueInput>>;
-  /** Update multiple Athtele documents */
-  update?: Maybe<Array<AthteleUpdateWithNestedWhereUniqueInput>>;
-  /** Upsert multiple Athtele documents */
-  upsert?: Maybe<Array<AthteleUpsertWithNestedWhereUniqueInput>>;
-  /** Disconnect multiple Athtele documents */
-  disconnect?: Maybe<Array<AthteleWhereUniqueInput>>;
-  /** Delete multiple Athtele documents */
-  delete?: Maybe<Array<AthteleWhereUniqueInput>>;
+export type AthleteUpdateManyInlineInput = {
+  /** Create and connect multiple Athlete documents */
+  create?: Maybe<Array<AthleteCreateInput>>;
+  /** Connect multiple existing Athlete documents */
+  connect?: Maybe<Array<AthleteConnectInput>>;
+  /** Override currently-connected documents with multiple existing Athlete documents */
+  set?: Maybe<Array<AthleteWhereUniqueInput>>;
+  /** Update multiple Athlete documents */
+  update?: Maybe<Array<AthleteUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple Athlete documents */
+  upsert?: Maybe<Array<AthleteUpsertWithNestedWhereUniqueInput>>;
+  /** Disconnect multiple Athlete documents */
+  disconnect?: Maybe<Array<AthleteWhereUniqueInput>>;
+  /** Delete multiple Athlete documents */
+  delete?: Maybe<Array<AthleteWhereUniqueInput>>;
 };
 
-export type AthteleUpdateManyInput = {
+export type AthleteUpdateManyInput = {
   name?: Maybe<Scalars['String']>;
   city?: Maybe<Scalars['String']>;
   modality?: Maybe<Scalars['String']>;
@@ -1002,59 +1002,59 @@ export type AthteleUpdateManyInput = {
   medal?: Maybe<Medals>;
 };
 
-export type AthteleUpdateManyWithNestedWhereInput = {
+export type AthleteUpdateManyWithNestedWhereInput = {
   /** Document search */
-  where: AthteleWhereInput;
+  where: AthleteWhereInput;
   /** Update many input */
-  data: AthteleUpdateManyInput;
+  data: AthleteUpdateManyInput;
 };
 
-export type AthteleUpdateOneInlineInput = {
-  /** Create and connect one Athtele document */
-  create?: Maybe<AthteleCreateInput>;
-  /** Update single Athtele document */
-  update?: Maybe<AthteleUpdateWithNestedWhereUniqueInput>;
-  /** Upsert single Athtele document */
-  upsert?: Maybe<AthteleUpsertWithNestedWhereUniqueInput>;
-  /** Connect existing Athtele document */
-  connect?: Maybe<AthteleWhereUniqueInput>;
-  /** Disconnect currently connected Athtele document */
+export type AthleteUpdateOneInlineInput = {
+  /** Create and connect one Athlete document */
+  create?: Maybe<AthleteCreateInput>;
+  /** Update single Athlete document */
+  update?: Maybe<AthleteUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single Athlete document */
+  upsert?: Maybe<AthleteUpsertWithNestedWhereUniqueInput>;
+  /** Connect existing Athlete document */
+  connect?: Maybe<AthleteWhereUniqueInput>;
+  /** Disconnect currently connected Athlete document */
   disconnect?: Maybe<Scalars['Boolean']>;
-  /** Delete currently connected Athtele document */
+  /** Delete currently connected Athlete document */
   delete?: Maybe<Scalars['Boolean']>;
 };
 
-export type AthteleUpdateWithNestedWhereUniqueInput = {
+export type AthleteUpdateWithNestedWhereUniqueInput = {
   /** Unique document search */
-  where: AthteleWhereUniqueInput;
+  where: AthleteWhereUniqueInput;
   /** Document to update */
-  data: AthteleUpdateInput;
+  data: AthleteUpdateInput;
 };
 
-export type AthteleUpsertInput = {
+export type AthleteUpsertInput = {
   /** Create document if it didn't exist */
-  create: AthteleCreateInput;
+  create: AthleteCreateInput;
   /** Update document if it exists */
-  update: AthteleUpdateInput;
+  update: AthleteUpdateInput;
 };
 
-export type AthteleUpsertWithNestedWhereUniqueInput = {
+export type AthleteUpsertWithNestedWhereUniqueInput = {
   /** Unique document search */
-  where: AthteleWhereUniqueInput;
+  where: AthleteWhereUniqueInput;
   /** Upsert data */
-  data: AthteleUpsertInput;
+  data: AthleteUpsertInput;
 };
 
 /** Identifies documents */
-export type AthteleWhereInput = {
+export type AthleteWhereInput = {
   /** Contains search across all appropriate fields. */
   _search?: Maybe<Scalars['String']>;
   /** Logical AND on all given filters. */
-  AND?: Maybe<Array<AthteleWhereInput>>;
+  AND?: Maybe<Array<AthleteWhereInput>>;
   /** Logical OR on all given filters. */
-  OR?: Maybe<Array<AthteleWhereInput>>;
+  OR?: Maybe<Array<AthleteWhereInput>>;
   /** Logical NOT on all given filters combined by AND. */
-  NOT?: Maybe<Array<AthteleWhereInput>>;
+  NOT?: Maybe<Array<AthleteWhereInput>>;
   id?: Maybe<Scalars['ID']>;
   /** All values that are not equal to given value. */
   id_not?: Maybe<Scalars['ID']>;
@@ -1208,8 +1208,8 @@ export type AthteleWhereInput = {
   medal_not_in?: Maybe<Array<Medals>>;
 };
 
-/** References Athtele record uniquely */
-export type AthteleWhereUniqueInput = {
+/** References Athlete record uniquely */
+export type AthleteWhereUniqueInput = {
   id?: Maybe<Scalars['ID']>;
   slug?: Maybe<Scalars['String']>;
 };
@@ -1417,46 +1417,46 @@ export type Mutation = {
    * @deprecated Please use the new paginated many mutation (unpublishManyAssetsConnection)
    */
   unpublishManyAssets: BatchPayload;
-  /** Create one athtele */
-  createAthtele?: Maybe<Athtele>;
-  /** Update one athtele */
-  updateAthtele?: Maybe<Athtele>;
-  /** Delete one athtele from _all_ existing stages. Returns deleted document. */
-  deleteAthtele?: Maybe<Athtele>;
-  /** Upsert one athtele */
-  upsertAthtele?: Maybe<Athtele>;
-  /** Publish one athtele */
-  publishAthtele?: Maybe<Athtele>;
-  /** Unpublish one athtele from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
-  unpublishAthtele?: Maybe<Athtele>;
-  /** Update many Athtele documents */
-  updateManyAthtelesConnection: AthteleConnection;
-  /** Delete many Athtele documents, return deleted documents */
-  deleteManyAthtelesConnection: AthteleConnection;
-  /** Publish many Athtele documents */
-  publishManyAthtelesConnection: AthteleConnection;
-  /** Find many Athtele documents that match criteria in specified stage and unpublish from target stages */
-  unpublishManyAthtelesConnection: AthteleConnection;
+  /** Create one athlete */
+  createAthlete?: Maybe<Athlete>;
+  /** Update one athlete */
+  updateAthlete?: Maybe<Athlete>;
+  /** Delete one athlete from _all_ existing stages. Returns deleted document. */
+  deleteAthlete?: Maybe<Athlete>;
+  /** Upsert one athlete */
+  upsertAthlete?: Maybe<Athlete>;
+  /** Publish one athlete */
+  publishAthlete?: Maybe<Athlete>;
+  /** Unpublish one athlete from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  unpublishAthlete?: Maybe<Athlete>;
+  /** Update many Athlete documents */
+  updateManyAthletesConnection: AthleteConnection;
+  /** Delete many Athlete documents, return deleted documents */
+  deleteManyAthletesConnection: AthleteConnection;
+  /** Publish many Athlete documents */
+  publishManyAthletesConnection: AthleteConnection;
+  /** Find many Athlete documents that match criteria in specified stage and unpublish from target stages */
+  unpublishManyAthletesConnection: AthleteConnection;
   /**
-   * Update many athteles
-   * @deprecated Please use the new paginated many mutation (updateManyAthtelesConnection)
+   * Update many athletes
+   * @deprecated Please use the new paginated many mutation (updateManyAthletesConnection)
    */
-  updateManyAthteles: BatchPayload;
+  updateManyAthletes: BatchPayload;
   /**
-   * Delete many Athtele documents
-   * @deprecated Please use the new paginated many mutation (deleteManyAthtelesConnection)
+   * Delete many Athlete documents
+   * @deprecated Please use the new paginated many mutation (deleteManyAthletesConnection)
    */
-  deleteManyAthteles: BatchPayload;
+  deleteManyAthletes: BatchPayload;
   /**
-   * Publish many Athtele documents
-   * @deprecated Please use the new paginated many mutation (publishManyAthtelesConnection)
+   * Publish many Athlete documents
+   * @deprecated Please use the new paginated many mutation (publishManyAthletesConnection)
    */
-  publishManyAthteles: BatchPayload;
+  publishManyAthletes: BatchPayload;
   /**
-   * Unpublish many Athtele documents
-   * @deprecated Please use the new paginated many mutation (unpublishManyAthtelesConnection)
+   * Unpublish many Athlete documents
+   * @deprecated Please use the new paginated many mutation (unpublishManyAthletesConnection)
    */
-  unpublishManyAthteles: BatchPayload;
+  unpublishManyAthletes: BatchPayload;
   /** Create one place */
   createPlace?: Maybe<Place>;
   /** Update one place */
@@ -1657,43 +1657,43 @@ export type MutationUnpublishManyAssetsArgs = {
 };
 
 
-export type MutationCreateAthteleArgs = {
-  data: AthteleCreateInput;
+export type MutationCreateAthleteArgs = {
+  data: AthleteCreateInput;
 };
 
 
-export type MutationUpdateAthteleArgs = {
-  where: AthteleWhereUniqueInput;
-  data: AthteleUpdateInput;
+export type MutationUpdateAthleteArgs = {
+  where: AthleteWhereUniqueInput;
+  data: AthleteUpdateInput;
 };
 
 
-export type MutationDeleteAthteleArgs = {
-  where: AthteleWhereUniqueInput;
+export type MutationDeleteAthleteArgs = {
+  where: AthleteWhereUniqueInput;
 };
 
 
-export type MutationUpsertAthteleArgs = {
-  where: AthteleWhereUniqueInput;
-  upsert: AthteleUpsertInput;
+export type MutationUpsertAthleteArgs = {
+  where: AthleteWhereUniqueInput;
+  upsert: AthleteUpsertInput;
 };
 
 
-export type MutationPublishAthteleArgs = {
-  where: AthteleWhereUniqueInput;
+export type MutationPublishAthleteArgs = {
+  where: AthleteWhereUniqueInput;
   to?: Array<Stage>;
 };
 
 
-export type MutationUnpublishAthteleArgs = {
-  where: AthteleWhereUniqueInput;
+export type MutationUnpublishAthleteArgs = {
+  where: AthleteWhereUniqueInput;
   from?: Array<Stage>;
 };
 
 
-export type MutationUpdateManyAthtelesConnectionArgs = {
-  where?: Maybe<AthteleManyWhereInput>;
-  data: AthteleUpdateManyInput;
+export type MutationUpdateManyAthletesConnectionArgs = {
+  where?: Maybe<AthleteManyWhereInput>;
+  data: AthleteUpdateManyInput;
   skip?: Maybe<Scalars['Int']>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
@@ -1702,8 +1702,8 @@ export type MutationUpdateManyAthtelesConnectionArgs = {
 };
 
 
-export type MutationDeleteManyAthtelesConnectionArgs = {
-  where?: Maybe<AthteleManyWhereInput>;
+export type MutationDeleteManyAthletesConnectionArgs = {
+  where?: Maybe<AthleteManyWhereInput>;
   skip?: Maybe<Scalars['Int']>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
@@ -1712,8 +1712,8 @@ export type MutationDeleteManyAthtelesConnectionArgs = {
 };
 
 
-export type MutationPublishManyAthtelesConnectionArgs = {
-  where?: Maybe<AthteleManyWhereInput>;
+export type MutationPublishManyAthletesConnectionArgs = {
+  where?: Maybe<AthleteManyWhereInput>;
   from?: Maybe<Stage>;
   to?: Array<Stage>;
   skip?: Maybe<Scalars['Int']>;
@@ -1724,8 +1724,8 @@ export type MutationPublishManyAthtelesConnectionArgs = {
 };
 
 
-export type MutationUnpublishManyAthtelesConnectionArgs = {
-  where?: Maybe<AthteleManyWhereInput>;
+export type MutationUnpublishManyAthletesConnectionArgs = {
+  where?: Maybe<AthleteManyWhereInput>;
   stage?: Maybe<Stage>;
   from?: Array<Stage>;
   skip?: Maybe<Scalars['Int']>;
@@ -1736,25 +1736,25 @@ export type MutationUnpublishManyAthtelesConnectionArgs = {
 };
 
 
-export type MutationUpdateManyAthtelesArgs = {
-  where?: Maybe<AthteleManyWhereInput>;
-  data: AthteleUpdateManyInput;
+export type MutationUpdateManyAthletesArgs = {
+  where?: Maybe<AthleteManyWhereInput>;
+  data: AthleteUpdateManyInput;
 };
 
 
-export type MutationDeleteManyAthtelesArgs = {
-  where?: Maybe<AthteleManyWhereInput>;
+export type MutationDeleteManyAthletesArgs = {
+  where?: Maybe<AthleteManyWhereInput>;
 };
 
 
-export type MutationPublishManyAthtelesArgs = {
-  where?: Maybe<AthteleManyWhereInput>;
+export type MutationPublishManyAthletesArgs = {
+  where?: Maybe<AthleteManyWhereInput>;
   to?: Array<Stage>;
 };
 
 
-export type MutationUnpublishManyAthtelesArgs = {
-  where?: Maybe<AthteleManyWhereInput>;
+export type MutationUnpublishManyAthletesArgs = {
+  where?: Maybe<AthleteManyWhereInput>;
   from?: Array<Stage>;
 };
 
@@ -2437,7 +2437,7 @@ export type Place = Node & {
   updatedBy?: Maybe<User>;
   /** User that last published this document */
   publishedBy?: Maybe<User>;
-  athtele?: Maybe<Athtele>;
+  athtele?: Maybe<Athlete>;
   /** List of Place versions */
   history: Array<Version>;
 };
@@ -2498,7 +2498,7 @@ export type PlaceCreateInput = {
   updatedAt?: Maybe<Scalars['DateTime']>;
   location: LocationInput;
   slug?: Maybe<Scalars['String']>;
-  athtele?: Maybe<AthteleCreateOneInlineInput>;
+  athtele?: Maybe<AthleteCreateOneInlineInput>;
 };
 
 export type PlaceCreateManyInlineInput = {
@@ -2620,7 +2620,7 @@ export type PlaceManyWhereInput = {
   createdBy?: Maybe<UserWhereInput>;
   updatedBy?: Maybe<UserWhereInput>;
   publishedBy?: Maybe<UserWhereInput>;
-  athtele?: Maybe<AthteleWhereInput>;
+  athtele?: Maybe<AthleteWhereInput>;
 };
 
 export enum PlaceOrderByInput {
@@ -2639,7 +2639,7 @@ export enum PlaceOrderByInput {
 export type PlaceUpdateInput = {
   location?: Maybe<LocationInput>;
   slug?: Maybe<Scalars['String']>;
-  athtele?: Maybe<AthteleUpdateOneInlineInput>;
+  athtele?: Maybe<AthleteUpdateOneInlineInput>;
 };
 
 export type PlaceUpdateManyInlineInput = {
@@ -2802,7 +2802,7 @@ export type PlaceWhereInput = {
   createdBy?: Maybe<UserWhereInput>;
   updatedBy?: Maybe<UserWhereInput>;
   publishedBy?: Maybe<UserWhereInput>;
-  athtele?: Maybe<AthteleWhereInput>;
+  athtele?: Maybe<AthleteWhereInput>;
 };
 
 /** References Place record uniquely */
@@ -2836,14 +2836,14 @@ export type Query = {
   assetsConnection: AssetConnection;
   /** Retrieve document version */
   assetVersion?: Maybe<DocumentVersion>;
-  /** Retrieve multiple athteles */
-  athteles: Array<Athtele>;
-  /** Retrieve a single athtele */
-  athtele?: Maybe<Athtele>;
-  /** Retrieve multiple athteles using the Relay connection interface */
-  athtelesConnection: AthteleConnection;
+  /** Retrieve multiple athletes */
+  athletes: Array<Athlete>;
+  /** Retrieve a single athlete */
+  athlete?: Maybe<Athlete>;
+  /** Retrieve multiple athletes using the Relay connection interface */
+  athletesConnection: AthleteConnection;
   /** Retrieve document version */
-  athteleVersion?: Maybe<DocumentVersion>;
+  athleteVersion?: Maybe<DocumentVersion>;
   /** Retrieve multiple places */
   places: Array<Place>;
   /** Retrieve a single place */
@@ -2941,9 +2941,9 @@ export type QueryAssetVersionArgs = {
 };
 
 
-export type QueryAthtelesArgs = {
-  where?: Maybe<AthteleWhereInput>;
-  orderBy?: Maybe<AthteleOrderByInput>;
+export type QueryAthletesArgs = {
+  where?: Maybe<AthleteWhereInput>;
+  orderBy?: Maybe<AthleteOrderByInput>;
   skip?: Maybe<Scalars['Int']>;
   after?: Maybe<Scalars['String']>;
   before?: Maybe<Scalars['String']>;
@@ -2954,16 +2954,16 @@ export type QueryAthtelesArgs = {
 };
 
 
-export type QueryAthteleArgs = {
-  where: AthteleWhereUniqueInput;
+export type QueryAthleteArgs = {
+  where: AthleteWhereUniqueInput;
   stage?: Stage;
   locales?: Array<Locale>;
 };
 
 
-export type QueryAthtelesConnectionArgs = {
-  where?: Maybe<AthteleWhereInput>;
-  orderBy?: Maybe<AthteleOrderByInput>;
+export type QueryAthletesConnectionArgs = {
+  where?: Maybe<AthleteWhereInput>;
+  orderBy?: Maybe<AthleteOrderByInput>;
   skip?: Maybe<Scalars['Int']>;
   after?: Maybe<Scalars['String']>;
   before?: Maybe<Scalars['String']>;
@@ -2974,7 +2974,7 @@ export type QueryAthtelesConnectionArgs = {
 };
 
 
-export type QueryAthteleVersionArgs = {
+export type QueryAthleteVersionArgs = {
   where: VersionWhereInput;
 };
 
@@ -3583,18 +3583,18 @@ export type GetPlacesQueryVariables = Exact<{
 }>;
 
 
-export type GetPlacesQuery = { __typename?: 'Query', places: Array<{ __typename?: 'Place', id: string, slug?: Maybe<string>, location: { __typename?: 'Location', latitude: number, longitude: number }, athtele?: Maybe<{ __typename?: 'Athtele', name: string, city: string, medal: Medals }> }> };
+export type GetPlacesQuery = { __typename?: 'Query', places: Array<{ __typename?: 'Place', id: string, slug?: Maybe<string>, location: { __typename?: 'Location', latitude: number, longitude: number }, athtele?: Maybe<{ __typename?: 'Athlete', name: string, city: string, medal: Medals }> }> };
 
 export type GetAthletesQueryVariables = Exact<{
   first?: Maybe<Scalars['Int']>;
 }>;
 
 
-export type GetAthletesQuery = { __typename?: 'Query', athteles: Array<{ __typename?: 'Athtele', name: string, city: string, modality: string, medal: Medals, slug: string, about?: Maybe<{ __typename?: 'RichText', html: string }>, image: { __typename?: 'Asset', url: string } }> };
+export type GetAthletesQuery = { __typename?: 'Query', athletes: Array<{ __typename?: 'Athlete', name: string, city: string, modality: string, medal: Medals, slug: string, about?: Maybe<{ __typename?: 'RichText', html: string }>, image: { __typename?: 'Asset', url: string } }> };
 
 export type GetAthleteBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
 
 
-export type GetAthleteBySlugQuery = { __typename?: 'Query', athtele?: Maybe<{ __typename?: 'Athtele', name: string, city: string, modality: string, medal: Medals, about?: Maybe<{ __typename?: 'RichText', html: string }>, image: { __typename?: 'Asset', url: string, width?: Maybe<number>, height?: Maybe<number> } }> };
+export type GetAthleteBySlugQuery = { __typename?: 'Query', athlete?: Maybe<{ __typename?: 'Athlete', name: string, city: string, modality: string, medal: Medals, about?: Maybe<{ __typename?: 'RichText', html: string }>, image: { __typename?: 'Asset', url: string, width?: Maybe<number>, height?: Maybe<number> } }> };

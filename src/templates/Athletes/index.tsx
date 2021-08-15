@@ -14,7 +14,7 @@ type ImageProps = {
 }
 
 export type AthletesTemplateProps = {
-  athtele: {
+  athlete: {
     id: string
     name: string
     city: string
@@ -27,7 +27,7 @@ export type AthletesTemplateProps = {
   }
 }
 
-export default function AthletesTemplate({ athtele }: AthletesTemplateProps) {
+export default function AthletesTemplate({ athlete }: AthletesTemplateProps) {
   const router = useRouter()
 
   if (router.isFallback) return null
@@ -35,17 +35,17 @@ export default function AthletesTemplate({ athtele }: AthletesTemplateProps) {
   return (
     <>
       <NextSeo
-        title={`${athtele.name} - Medals Brazil`}
+        title={`${athlete.name} - Medals Brazil`}
         canonical="https://medals-brazil.vercel.app"
         openGraph={{
           url: 'https://medals-brazil.vercel.app',
-          title: `${athtele.name} - Medals Brazil`,
+          title: `${athlete.name} - Medals Brazil`,
           images: [
             {
-              url: athtele.image.url,
-              width: athtele.image.width,
-              height: athtele.image.height,
-              alt: `${athtele.name}`
+              url: athlete.image.url,
+              width: athlete.image.width,
+              height: athlete.image.height,
+              alt: `${athlete.name}`
             }
           ]
         }}
@@ -56,15 +56,15 @@ export default function AthletesTemplate({ athtele }: AthletesTemplateProps) {
 
       <S.Wrapper>
         <S.Container>
-          <S.Heading>{athtele?.name}</S.Heading>
+          <S.Heading>{athlete?.name}</S.Heading>
 
           <S.Gallery>
             <Image
-              key={`photo-${athtele.id}`}
-              src={athtele.image.url}
-              alt={athtele.name}
-              width={athtele.image.width}
-              height={athtele.image.height}
+              key={`photo-${athlete.id}`}
+              src={athlete.image.url}
+              alt={athlete.name}
+              width={athlete.image.width}
+              height={athlete.image.height}
               quality={75}
             />
           </S.Gallery>
@@ -72,7 +72,7 @@ export default function AthletesTemplate({ athtele }: AthletesTemplateProps) {
           <S.SectionAbout>
             <h2>About</h2>
             <S.Body
-              dangerouslySetInnerHTML={{ __html: athtele.about?.html || '' }}
+              dangerouslySetInnerHTML={{ __html: athlete.about?.html || '' }}
             />
           </S.SectionAbout>
 
@@ -81,7 +81,7 @@ export default function AthletesTemplate({ athtele }: AthletesTemplateProps) {
 
             <S.Body>
               <p>
-                <strong>{athtele.modality}</strong>
+                <strong>{athlete.modality}</strong>
               </p>
             </S.Body>
           </S.SectionModality>
@@ -90,8 +90,8 @@ export default function AthletesTemplate({ athtele }: AthletesTemplateProps) {
             <h2>Medal</h2>
             <S.Body>
               <Image
-                src={`/img/${athtele.medal}.png`}
-                alt={`${athtele.medal} medal`}
+                src={`/img/${athlete.medal}.png`}
+                alt={`${athlete.medal} medal`}
                 width={48}
                 height={48}
                 loading="lazy"

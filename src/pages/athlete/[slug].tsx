@@ -8,21 +8,21 @@ import { GetStaticProps } from 'next'
 import { useRouter } from 'next/dist/client/router'
 import AthletesTemplate, { AthletesTemplateProps } from 'templates/Athletes'
 
-export default function Place({ athtele }: AthletesTemplateProps) {
+export default function Place({ athlete }: AthletesTemplateProps) {
   const router = useRouter()
 
   // retorna um loading, qq coisa enquanto está sendo criada a página
   if (router.isFallback) return null
 
-  return <AthletesTemplate athtele={athtele} />
+  return <AthletesTemplate athlete={athlete} />
 }
 
 export const getStaticPaths = async () => {
-  const { athteles } = await client.request<GetAthletesQuery>(GET_ATHLETES, {
+  const { athletes } = await client.request<GetAthletesQuery>(GET_ATHLETES, {
     first: 3
   })
 
-  const paths = athteles.map(({ slug }) => ({
+  const paths = athletes.map(({ slug }) => ({
     params: { slug }
   }))
 
@@ -30,18 +30,18 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { athtele } = await client.request<GetAthleteBySlugQuery>(
+  const { athlete } = await client.request<GetAthleteBySlugQuery>(
     GET_ATHLETE_BY_SLUG,
     {
       slug: `${params?.slug}`
     }
   )
 
-  if (!athtele) return { notFound: true }
+  if (!athlete) return { notFound: true }
 
   return {
     props: {
-      athtele
+      athlete
     }
   }
 }

@@ -46,7 +46,7 @@ export const GET_PLACES = gql`
 
 export const GET_ATHLETES = gql`
   query getAthletes($first: Int) {
-    athteles(first: $first) {
+    athletes(first: $first) {
       name
       city
       modality
@@ -64,7 +64,7 @@ export const GET_ATHLETES = gql`
 
 export const GET_ATHLETE_BY_SLUG = gql`
   query getAthleteBySlug($slug: String!) {
-    athtele(where: { slug: $slug }) {
+    athlete(where: { slug: $slug }) {
       name
       city
       about {
